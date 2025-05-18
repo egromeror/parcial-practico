@@ -4,7 +4,7 @@ import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "t
 @Entity()
 export class PlatoEntity {
     @PrimaryGeneratedColumn('uuid')
-        id: string;
+    id: string;
     
     @Column()
     nombre: string;
