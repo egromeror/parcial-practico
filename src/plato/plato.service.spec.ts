@@ -7,7 +7,7 @@ import { TypeOrmTestingConfig } from '../shared/testing-utils/typeorm-testing-co
 import { getRepositoryToken } from '@nestjs/typeorm';
 
 describe('PlatoService', () => {
-let service: PlatoService;
+  let service: PlatoService;
   let repository: Repository<PlatoEntity>;
   let platosList: PlatoEntity[];
 
