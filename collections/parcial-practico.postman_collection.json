@@ -1,0 +1,927 @@
+{
+	"info": {
+		"_postman_id": "641c6b2b-588a-40cf-9bf2-7998ff96908e",
+		"name": "parcial-practico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43927279",
+		"_collection_link": "https://cultura-gastronmica.postman.co/workspace/Cultura-gastron%C3%B3mica~29326917-96bf-4ee5-8e21-f8c909b4c9f7/collection/43927279-641c6b2b-588a-40cf-9bf2-7998ff96908e?action=share&source=collection_link&creator=43927279"
+	},
+	"item": [
+		{
+			"name": "Restaurante",
+			"item": [
+				{
+					"name": "Crear restaurante",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"restaurante_id\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Restaurante Japon\",\r\n  \"direccion\": \"Calle 101 # 150 - 20\",\r\n  \"tipo_cocina\": \"Japonesa\",\r\n  \"url\": \"https://google.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/restaurante",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"restaurante"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear restaurante",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Restaurante MX\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"pais\": \"Colombia\",\r\n  \"estrellas\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/restaurantes",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"restaurantes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"nombre\": \"Restaurante Tokio\",\r\n    \"ciudad\": \"Bogotá\",\r\n    \"país\": \"Colombia\",\r\n    \"estrellasMichelin\": 2,\r\n    \"fechaMichelin\": \"2023-06-15\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Crear restaurante Tipo de Cocina Error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"restaurante_id\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Restaurante Japon\",\r\n  \"direccion\": \"Calle 101 # 150 - 20\",\r\n  \"tipo_cocina\": \"Hola\",\r\n  \"url\": \"https://google.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/restaurante",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"restaurante"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear restaurante",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Restaurante MX\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"pais\": \"Colombia\",\r\n  \"estrellas\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/restaurantes",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"restaurantes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"nombre\": \"Restaurante Tokio\",\r\n    \"ciudad\": \"Bogotá\",\r\n    \"país\": \"Colombia\",\r\n    \"estrellasMichelin\": 2,\r\n    \"fechaMichelin\": \"2023-06-15\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Obtener todos los restaurantes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('numero de restaurantes > ' + 0, function () {\r",
+									"   var data = pm.response.json()\r",
+									"   pm.expect(data.length).to.greaterThan(0)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/restaurante",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"restaurante"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener todos los restaurantes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/reststaurante",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"reststaurante"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n        \"nombre\": \"Restaurante Tokio\",\r\n        \"ciudad\": \"Bogotá\",\r\n        \"país\": \"Colombia\",\r\n        \"estrellasMichelin\": 2,\r\n        \"fechaMichelin\": \"2023-06-15\"\r\n    },\r\n    {\r\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n        \"nombre\": \"Restaurante dos\",\r\n        \"ciudad\": \"Bogotá\",\r\n        \"país\": \"Colombia\",\r\n        \"estrellasMichelin\": 2,\r\n        \"fechaMichelin\": \"2023-06-15\"\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Obtener restaurante por id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/restaurante/0af531b4-a85c-4f09-bb91-3e1f5301eefe",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"restaurante",
+								"0af531b4-a85c-4f09-bb91-3e1f5301eefe"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener restaurante por id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/reststaurantes/{id}",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"reststaurantes",
+										"{id}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"nombre\": \"Restaurante Tokio\",\r\n    \"ciudad\": \"Bogotá\",\r\n    \"país\": \"Colombia\",\r\n    \"estrellasMichelin\": 2,\r\n    \"fechaMichelin\": \"2023-06-15\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Obtener restaurante no existente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"   pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"No se encontró el restaurante\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/restaurante/c939df04-1cef-4354-8bd1-df4559b3cfda",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"restaurante",
+								"c939df04-1cef-4354-8bd1-df4559b3cfda"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener restaurante por id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/reststaurantes/{id}",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"reststaurantes",
+										"{id}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"nombre\": \"Restaurante Tokio\",\r\n    \"ciudad\": \"Bogotá\",\r\n    \"país\": \"Colombia\",\r\n    \"estrellasMichelin\": 2,\r\n    \"fechaMichelin\": \"2023-06-15\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Actualizar restaurante",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Restaurante Mexican II\",\r\n  \"direccion\": \"Calle 100 # 13 - 20\",\r\n  \"tipo_cocina\": \"Italiana\",\r\n  \"url\": \"https://google2.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/restaurante/0af531b4-a85c-4f09-bb91-3e1f5301eefe",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"restaurante",
+								"0af531b4-a85c-4f09-bb91-3e1f5301eefe"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Actualizar restaurante",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Restaurante Tokio\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"pais\": \"Colombia\",\r\n  \"estrellasMichelin\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/restaurantes/{id}",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"restaurantes",
+										"{id}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"nombre\": \"Restaurante Tokio\",\r\n    \"ciudad\": \"Bogotá\",\r\n    \"país\": \"Colombia\",\r\n    \"estrellasMichelin\": 2,\r\n    \"fechaMichelin\": \"2023-06-15\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Eliminar un restaurante",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"   pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/restaurante/b9de02e1-d12e-4667-b61b-1d802e6829bf",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"restaurante",
+								"b9de02e1-d12e-4667-b61b-1d802e6829bf"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Eliminar un restaurante",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/restaurantes/{id}",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"restaurantes",
+										"{id}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Plato",
+			"item": [
+				{
+					"name": "Crear plato",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()\r",
+									"pm.globals.set(\"restaurante_id\", data.id);\r",
+									"\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"   pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Tacos2\",\r\n  \"descripcion\": \"Comida mexicana\",\r\n  \"precio\": 100,\r\n  \"categoria\": \"plato fuerte\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/plato",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"plato"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Crear restaurante",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Restaurante MX\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"pais\": \"Colombia\",\r\n  \"estrellas\": 4\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/restaurantes",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"restaurantes"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"nombre\": \"Restaurante Tokio\",\r\n    \"ciudad\": \"Bogotá\",\r\n    \"país\": \"Colombia\",\r\n    \"estrellasMichelin\": 2,\r\n    \"fechaMichelin\": \"2023-06-15\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Obtener todos los platos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('numero de restaurantes > ' + 0, function () {\r",
+									"   var data = pm.response.json()\r",
+									"   pm.expect(data.length).to.greaterThan(0)\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/plato",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"plato"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener todos los restaurantes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/reststaurante",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"reststaurante"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n        \"nombre\": \"Restaurante Tokio\",\r\n        \"ciudad\": \"Bogotá\",\r\n        \"país\": \"Colombia\",\r\n        \"estrellasMichelin\": 2,\r\n        \"fechaMichelin\": \"2023-06-15\"\r\n    },\r\n    {\r\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n        \"nombre\": \"Restaurante dos\",\r\n        \"ciudad\": \"Bogotá\",\r\n        \"país\": \"Colombia\",\r\n        \"estrellasMichelin\": 2,\r\n        \"fechaMichelin\": \"2023-06-15\"\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Obtener plato por id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/plato/d4a0ba5a-ee1f-404f-b055-8fcf1e1112a1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"plato",
+								"d4a0ba5a-ee1f-404f-b055-8fcf1e1112a1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener restaurante por id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/reststaurantes/{id}",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"reststaurantes",
+										"{id}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"nombre\": \"Restaurante Tokio\",\r\n    \"ciudad\": \"Bogotá\",\r\n    \"país\": \"Colombia\",\r\n    \"estrellasMichelin\": 2,\r\n    \"fechaMichelin\": \"2023-06-15\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Obtener plato no existente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"   pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Get expected error message\", function () {\r",
+									"   var data = pm.response.json();\r",
+									"   pm.expect(data.message).to.eql(\"No se encontró el restaurante\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/plato/c939df04-1cef-4354-8bd1-df4559b3cfda",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"plato",
+								"c939df04-1cef-4354-8bd1-df4559b3cfda"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Obtener restaurante por id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/reststaurantes/{id}",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"reststaurantes",
+										"{id}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"nombre\": \"Restaurante Tokio\",\r\n    \"ciudad\": \"Bogotá\",\r\n    \"país\": \"Colombia\",\r\n    \"estrellasMichelin\": 2,\r\n    \"fechaMichelin\": \"2023-06-15\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Actualizar plato",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"   pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Tacos\",\r\n  \"descripcion\": \"Comida mexicana super deliciosa\",\r\n  \"precio\": 100,\r\n  \"categoria\": \"plato fuerte\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/plato/d4a0ba5a-ee1f-404f-b055-8fcf1e1112a1",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"plato",
+								"d4a0ba5a-ee1f-404f-b055-8fcf1e1112a1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Actualizar restaurante",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"nombre\": \"Restaurante Tokio\",\r\n  \"ciudad\": \"Bogotá\",\r\n  \"pais\": \"Colombia\",\r\n  \"estrellasMichelin\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/restaurantes/{id}",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"restaurantes",
+										"{id}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"nombre\": \"Restaurante Tokio\",\r\n    \"ciudad\": \"Bogotá\",\r\n    \"país\": \"Colombia\",\r\n    \"estrellasMichelin\": 2,\r\n    \"fechaMichelin\": \"2023-06-15\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Eliminar un plato",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"   pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/plato/a853dc4b-a360-4766-b252-00738e3a89f2",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"plato",
+								"a853dc4b-a360-4766-b252-00738e3a89f2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Eliminar un restaurante",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{BaseUrl}}/restaurantes/{id}",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"restaurantes",
+										"{id}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}
